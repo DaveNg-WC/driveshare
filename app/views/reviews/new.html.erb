@@ -1,7 +1,8 @@
 # this is for new review form
 <h1>New review</h1>
 <%= simple_form_for [@listing, @review] do |f| %>
-  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.input :description %>
   <%= f.submit "Submit review", class: "btn btn-primary" %>
 <% end %>
 
