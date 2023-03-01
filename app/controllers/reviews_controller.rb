@@ -10,6 +10,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.listing = set_listing
     @review.user = current_user
+    set_listing.user == current_user ? @review.for_host = false : @review.for_host = true
+
     # to validate if review if valid
     if @review.save
       redirect_to listing_path(@listing)
