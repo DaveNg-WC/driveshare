@@ -1,0 +1,16 @@
+<h1>Your Current Offers</h1>
+
+<ul>
+  <% @offers.each do |offer| %>
+    <br>
+    <strong>Offer ID:</strong> <%= offer.id %><br>
+    <strong>Price Per Day:</strong> <%= offer.price %><br>
+    <strong>Start Date:</strong> <%= offer.start_date %><br>
+    <strong>End Date:</strong> <%= offer.end_date %><br>
+    <strong>Current Status:</strong> <%= offer.status %><br>
+    <strong>Created by:</strong> <%= offer.user_id %><br>
+    <strong>Listing ID:</strong> <%= offer.listing_id %><br>
+    <button>View</button>
+    <br>
+  <% end %>
+</ul>

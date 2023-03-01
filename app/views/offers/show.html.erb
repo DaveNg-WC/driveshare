@@ -1,0 +1,14 @@
+<h1>This is the specific offer page</h1>
+<p> Showing details for Offer ID: <%= "#{@offer.id}" %><br>
+
+<br>
+
+<strong>Price Per Day:</strong> <%= @offer.price %><br>
+<strong>Start Date:</strong> <%= @offer.start_date %><br>
+<strong>End Date:</strong> <%= @offer.end_date %><br>
+<strong>Current Status:</strong> <%= @offer.status %><br>
+<strong>Created by:</strong> <%= @offer.user_id %><br>
+<strong>Listing ID:</strong> <%= @offer.listing_id %><br>
+
+<button type="button" class="btn btn-success">Accept</button>
+<button type="button" class="btn btn-primary">Counter Offer</button>
