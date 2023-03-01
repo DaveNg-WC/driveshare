@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   # nested resources to allow user to create review to the listing
   resources :listings do
-    resources :reviews, only: %i[new create]
+    resources :reviews, only: %i[new create index]
   end
-
 end

@@ -18,6 +18,11 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def index
+    @reviews = Review.all
+  end
+
+
   private
 
   def set_listing
