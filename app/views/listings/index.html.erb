@@ -18,11 +18,11 @@
         <td><%= listing.description %></td>
         <td><%= listing.price %></td>
         <td><%= listing.address %></td>
-        <td><%= listing.user.email %></td>
+        <td><%= listing.user.username %></td>
         <td>
           <%= link_to 'Show', listing_path(listing) %>
           <%= link_to 'Edit', edit_listing_path(listing) %>
-          <%= link_to 'Destroy', listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to "Delete", listing_path(listing), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         </td>
       </tr>
     <% end %>
