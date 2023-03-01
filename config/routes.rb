@@ -5,4 +5,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  # nested resources to allow user to create review to the listing
+  resources :listings do
+    resources :reviews, only: %i[new create]
+  end
+
 end
