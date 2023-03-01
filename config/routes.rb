@@ -6,11 +6,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  # ROUTES FOR OFFERS
-  get '/offers', to: 'offers#index'
-  get '/offers/:id', to: 'offers#show'
-  post '/listings/:id', to: 'offers#create'
-  patch '/offers/:id', to: 'offers#update'
-  delete '/offers/:id', to: 'offers#destroy'
+  resources :listings do
+    resources :reviews, only: %i[new create]
+  end
 
+  resources :offers, only: %i[index show create update destroy]
 end
