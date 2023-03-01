@@ -1,0 +1,34 @@
+<h1>Listings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Address</th>
+      <th>User</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.name %></td>
+        <td><%= listing.description %></td>
+        <td><%= listing.price %></td>
+        <td><%= listing.address %></td>
+        <td><%= listing.user.email %></td>
+        <td>
+          <%= link_to 'Show', listing_path(listing) %>
+          <%= link_to 'Edit', edit_listing_path(listing) %>
+          <%= link_to 'Destroy', listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Listing', new_listing_path %>
