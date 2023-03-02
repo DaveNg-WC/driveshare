@@ -1,6 +1,35 @@
 <h1>Listings</h1>
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
 
-<table>
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: black;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #ddd;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -14,10 +43,10 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
-        <td><%= listing.name %></td>
-        <td><%= listing.description %></td>
+        <td><%= listing.name.capitalize %></td>
+        <td><%= listing.description.capitalize %></td>
         <td><%= listing.price %></td>
-        <td><%= listing.address %></td>
+        <td><%= listing.address.capitalize %></td>
         <td><%= listing.user.username %></td>
         <td>
           <%= link_to 'Show', listing_path(listing) %>
