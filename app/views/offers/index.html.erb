@@ -1,16 +1,25 @@
-<h1>Your Current Offers</h1>
+<div class="container">
+  <h1>Your Current Offers</h1>
 
-<ul>
-  <% @offers.each do |offer| %>
-    <br>
-    <strong>Offer ID:</strong> <%= offer.id %><br>
-    <strong>Price Per Day:</strong> <%= offer.price %><br>
-    <strong>Start Date:</strong> <%= offer.start_date %><br>
-    <strong>End Date:</strong> <%= offer.end_date %><br>
-    <strong>Current Status:</strong> <%= offer.status %><br>
-    <strong>Created by:</strong> <%= offer.user_id %><br>
-    <strong>Listing ID:</strong> <%= offer.listing_id %><br>
-    <button>View</button>
-    <br>
-  <% end %>
-</ul>
+  <ul class="list-group">
+    <% @offers.each do |offer| %>
+      <li class="list-group-item">
+        <strong>Offer ID:</strong> <%= offer.id %><br>
+        <strong>Price Per Day:</strong> <%= offer.price %><br>
+        <strong>Start Date:</strong> <%= offer.start_date %><br>
+        <strong>End Date:</strong> <%= offer.end_date %><br>
+        <strong>Status:</strong> <%= offer.status %><br>
+        <strong>Car Listing ID:</strong> <%= offer.listing_id %><br>
+        <strong>Renter ID: </strong> <%= offer.user_id %><br>
+        <!-- This portion here is to get the Host info that is tagged to the listing -->
+        <% listing_id = offer.listing_id %>
+        <% listing = Listing.find(listing_id) %>
+        <% host_id = listing.user_id %>
+        <% host = User.find(host_id) %>
+        <strong>Car Owner ID:</strong> <%= host.id %> /
+        <strong>Name of Owner</strong> <%= host.first_name.capitalize %>
+        <%= link_to "Details", offer_path(offer.id), class: "btn btn-primary" %>
+      </li>
+    <% end %>
+  </ul>
+</div>

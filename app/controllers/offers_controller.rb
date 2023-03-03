@@ -4,12 +4,18 @@ class OffersController < ApplicationController
     # @user_offers = Offer.where(user_id: 1)
   end
 
+  def new
+    @offer = Offer.new
+  end
+
   def show
     @offer = Offer.find(params[:id])
   end
 
   def create
     @offer = Offer.new(offer_params)
+    # @offer.user_id = @CurrentUserLoggedIn.id
+    # @offer.listing_id = params[:listing_id]
 
     if @offer.save
       # redirect_to specific_offer_page
@@ -20,9 +26,10 @@ class OffersController < ApplicationController
 
   def update
     @offer = Offer.find(params[:id])
+    @offer.status = "PROPOSAL"
 
     if @offer.update(offer_params)
-      # redirect_to specific_offer_page
+      redirect_to offer_path
     else
       render :edit
     end
@@ -35,6 +42,12 @@ class OffersController < ApplicationController
     # redirect_to current_listing_path
   end
 
+  def accept_offer
+    @offer = Offer.find(params[:id])
+    @offer.status = "CONFIRMED"
+    @offer.save
+    redirect_to offer_path, alert: "This offer is now accepted. Status has changed from Proposal to Confirmed."
+  end
 
   private
 

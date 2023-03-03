@@ -10,5 +10,9 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[new create]
   end
 
-  resources :offers, only: %i[index show create update destroy]
+  resources :offers, only: [:index, :show, :new, :create, :update, :destroy] do
+    member do
+      put :accept_offer
+    end
+  end
 end
