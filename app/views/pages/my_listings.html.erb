@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="max-width: 1430px;">
 <h1>My Listings</h1>
 <style>
     table {
@@ -41,7 +41,17 @@
     .card-img-top {
       object-fit: cover;
       height: 200px;
+      border-radius: 20px;
     }
+
+    .card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
+    transition: 0.3s;
+    }
+
+    .card {
+    border-radius: 20px;
+   }
   </style>
 
 <%= link_to 'New Listing', new_listing_path, class: "btn btn-info mt-3 mb-3" %>
@@ -55,11 +65,11 @@
         <% end %>
         </div>
         <div class="card-body">
-          <h5 class="card-title"><%= listing.name.capitalize %></h5>
+          <h5 class="card-title"><strong><%= listing.name.capitalize %></strong></h5>
           <p class="card-text"><%= listing.description.capitalize %></p>
           <p class="card-text">$<%= listing.price %></p>
           <p class="card-text"><%= listing.address.capitalize %></p>
-          <p class="card-text"><%= listing.user.username %></p>
+          <p class="card-text"><strong>Hosted by:</strong> <%= listing.user.username %></p>
           <div class="actions">
           <%= link_to 'Show', listing_path(listing), class: "btn btn-primary" %>
           <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-secondary" %>
