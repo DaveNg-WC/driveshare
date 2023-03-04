@@ -1,13 +1,11 @@
 class ReviewsController < ApplicationController
-  before_action :set_listing, only: %i[new create]
+  before_action :set_listing, only: %i[new create index]
 
   def new
-    @listing = set_listing
     @review = Review.new
   end
 
   def create
-
     @review = Review.new(review_params)
     @review.listing = @listing
     @review.user = current_user
@@ -15,7 +13,7 @@ class ReviewsController < ApplicationController
 
     # to validate if review if valid
     if @review.save
-      redirect_to listing_reviews_path(@listing)
+      redirect_to listing_path(@listing)
 
     else
       render :new, status: :unprocessable_entity
@@ -23,7 +21,7 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all
+    @reviews = @listing.reviews
   end
 
   def destroy

@@ -3,12 +3,12 @@
   <% @reviews.each do |review| %>
     <li class="list-group-item">
     <%= review.rating %> <%= review.description %>
-    <%# <% if review.user == current_user %>
+    <% if review.user == current_user %>
       <%= link_to "Delete", review_path(review),
-      # class: "btn btn-danger",
+      class: "btn btn-danger",
       data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete this task?"}
        %>
-    <%# <% end %>
+    <% end %>
     </li>
   <% end %>
 </ul>
