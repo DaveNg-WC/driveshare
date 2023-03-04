@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "listings#index"
+
+  get "/my_listings", to: "pages#my_listings", as: "my_listings"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -13,11 +15,10 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: %i[destroy]
-  
+
   resources :offers, only: [:index, :show, :new, :create, :update, :destroy] do
     member do
       put :accept_offer
     end
   end
-
 end
