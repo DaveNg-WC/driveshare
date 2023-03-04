@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "listings#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -13,5 +13,11 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: %i[destroy]
-  resources :offers, only: %i[index show create update destroy]
+  
+  resources :offers, only: [:index, :show, :new, :create, :update, :destroy] do
+    member do
+      put :accept_offer
+    end
+  end
+
 end

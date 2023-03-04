@@ -1,0 +1,5 @@
+<h1><%= @listing.name %></h1>
+<p><%= @listing.description %></p>
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %>
+<%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
