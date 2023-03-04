@@ -79,3 +79,5 @@ group :test do
 end
 
 gem "devise"
+gem "cloudinary"
+gem "activestorage"
