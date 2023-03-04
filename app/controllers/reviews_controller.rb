@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     listing = @review.listing
     @review.destroy
-    redirect_to listing_reviews_path(listing)
+    redirect_to listing_path(listing)
   end
 
   private
