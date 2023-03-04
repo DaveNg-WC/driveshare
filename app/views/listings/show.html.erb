@@ -1,5 +1,14 @@
-<h1><%= @listing.name %></h1>
-<p><%= @listing.description %></p>
+<h1><%= @listing.name.capitalize %></h1>
+<p><strong>Description:</strong> <%= @listing.description.capitalize %></p>
+<p><strong>Price:</strong> $<%= @listing.price %></p>
+<p><strong>Address:</strong> <%= @listing.address.capitalize %></p>
+<p><strong>User:</strong> <%= @listing.user.username %></p>
+
+<% if @listing.photo.attached? %>
+  <%= image_tag @listing.photo %>
+<% end %>
+
+<br>
+
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
-<%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
