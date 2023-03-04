@@ -6,5 +6,5 @@ class Listing < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   validates :address, presence: true
-  has_many_attached :photo
+  has_one_attached :photo
 end
