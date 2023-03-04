@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_listing, only: %i[new create]
+  before_action :set_listing, only: %i[new create destroy]
 
   def new
     @listing = set_listing
@@ -9,8 +9,8 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.listing = set_listing
-    @review.user = current_user
-    set_listing.user == current_user ? @review.for_host = false : @review.for_host = true
+    @review.user = User.first
+    set_listing.user == User.first ? @review.for_host = false : @review.for_host = true
 
     # to validate if review if valid
     if @review.save
@@ -22,6 +22,12 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
+  end
+
+  def destroy
+    @review.destroy
+    raise
+    redirect_to index_path(@reviews), notice: "Review deleted successfully!"
   end
 
 
