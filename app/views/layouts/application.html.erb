@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
+
     <%= yield %>
+    <% if user_signed_in? %>
+      <h2>Hi <%= current_user.username %></h2>
+    <% end %>
   </body>
 </html>
