@@ -13,7 +13,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
-    @listing.user_id = 2 # Hard coding. To update to user_id when devise is done.
+    @listing.user_id = current_user.id # Hard coding. To update to user_id when devise is done.
     if @listing.save
       redirect_to listings_path, notice: "Listing was successfully created."
     else
