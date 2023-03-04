@@ -10,3 +10,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body, h1, h2, h3 {
+  font-family: "Helvetica Neue";
+}
