@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_listing, only: %i[new create destroy]
+  before_action :set_listing, only: %i[new create]
 
   def new
     @listing = set_listing
@@ -7,14 +7,16 @@ class ReviewsController < ApplicationController
   end
 
   def create
+
     @review = Review.new(review_params)
-    @review.listing = set_listing
-    @review.user = User.first
-    set_listing.user == User.first ? @review.for_host = false : @review.for_host = true
+    @review.listing = @listing
+    @review.user = current_user
+    @listing.user == current_user ? @review.for_host = false : @review.for_host = true
 
     # to validate if review if valid
     if @review.save
-      redirect_to listing_path(@listing)
+      redirect_to listing_reviews_path(@listing)
+
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,11 +27,11 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = Review.find(params[:id])
+    listing = @review.listing
     @review.destroy
-    raise
-    redirect_to index_path(@reviews), notice: "Review deleted successfully!"
+    redirect_to listing_reviews_path(listing)
   end
-
 
   private
 
