@@ -1,2 +1,20 @@
-<h1>Listing Created</h1>
-<p>Your new listing has been created successfully.</p>
+<h1>New Listing</h1>
+<%= form_for @listing, html: { multipart: true } do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %><br>
+
+  <%= f.label :price %>
+  <%= f.text_field :price %><br>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %><br>
+
+  <%= f.label :photo %>
+  <%= f.file_field :photo %><br>
+
+  <%= f.submit "Create Listing" %>
+<% end %>
+Note that we have included multipart: true option in the form to allow file uploads. The file_field method creates an input field for file uploads, which will attach a file to the photo attribute when submitted. The create action in the ListingsController should handle the creation of the record and the attachment of the uploaded file.

@@ -14,7 +14,7 @@ local:
 #   region: us-east-1
 #   bucket: your_own_bucket-<%= Rails.env %>
 
-# Remember not to checkin your GCS keyfile to a repository
+# Remember not to checkin your GCS keyfile   to a repository
 # google:
 #   service: GCS
 #   project: your_project
@@ -32,3 +32,10 @@ local:
 #   service: Mirror
 #   primary: local
 #   mirrors: [ amazon, google, microsoft ]
+
+# Created for active storage
+cloudinary:
+  service: Cloudinary
+  api_key: 587128978297245
+  cloud_name: dbmur41un
+  api_secret: rLIBmD6H25Ugx3k7QKdgz3qDFZI
