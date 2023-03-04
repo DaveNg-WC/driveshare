@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
 
     # to validate if review if valid
     if @review.save
-      redirect_to listing_reviews_path(@listing)
+      redirect_to listing_path(@listing)
 
     else
       render :new, status: :unprocessable_entity

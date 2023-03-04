@@ -12,3 +12,21 @@
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
+<p></p>
+<%# below is to test function of creating a new review for listing %>
+<%= link_to "Leave a Review", new_listing_review_path(@listing) %>
+<p></p>
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @reviews.each do |review| %>
+    <li class="list-group-item">
+    <%= review.rating %> <%= review.description %>
+    <% if review.user == current_user %>
+      <%= link_to "Delete", review_path(review),
+      class: "btn btn-danger",
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete this task?"}
+       %>
+    <% end %>
+    </li>
+  <% end %>
+</ul>
