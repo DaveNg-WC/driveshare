@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   # nested resources to allow user to create review to the listing
+
   resources :listings do
     resources :reviews, only: %i[new create index]
   end
 
   resources :reviews, only: %i[destroy]
+  resources :offers, only: %i[index show create update destroy]
 end
