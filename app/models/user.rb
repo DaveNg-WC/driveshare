@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
-  has_many :listings, dependent: :destroy
+  has_many :listings
   has_many :offers, dependent: :destroy
 
   # Include default devise modules. Others available are:

@@ -1,0 +1,11 @@
+# this is for new review form
+<h1>New review</h1>
+<%= simple_form_for [@listing, @review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :description %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
+
+# !!!!!
+# need to have a 'show' (views/listings/show.html.erb)? to display all the reviews under the listing?
+# refering to lecture 'advanced routing' 'Create view' section
