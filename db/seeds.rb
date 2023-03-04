@@ -20,5 +20,5 @@ Listing.create(name: "Tesla", description: "Best Tesla in town", price: 110, add
 Offer.create(price: 55, start_date: "2023-02-15", end_date: "2023-02-20", status: "PROPOSAL", listing_id: 1, user_id: 2)
 Offer.create(price: 38, start_date: "2023-02-21", end_date: "2023-02-26", status: "PROPOSAL", listing_id: 2, user_id: 1)
 
-Review.create(description: "good car!", rating: 4.8, listing_id: 1, user_id: 2, for_host: true)
+Review.create(description: "good car!", rating: 4.8, listing_id: 1, user_id: 1, for_host: true)
 Review.create(description: "bad car!", rating: 1.5, listing_id: 1, user_id: 2, for_host: false)
