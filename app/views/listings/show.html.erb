@@ -1,8 +1,8 @@
 <div class="container" style="max-width: 1430px;">
-  <h1><%= @listing.name.capitalize %></h1>
   <% if @listing.photo.attached? %>
     <%= image_tag @listing.photo %>
   <% end %>
+  <h1><%= @listing.name.capitalize %></h1>
   <p><strong>Description:</strong> <%= @listing.description.capitalize %></p>
   <p><strong>Price:</strong> $<%= @listing.price %></p>
   <p><strong>Address:</strong> <%= @listing.address.capitalize %></p>

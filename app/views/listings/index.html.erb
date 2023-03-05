@@ -40,7 +40,7 @@
 
     .card-img-top {
       object-fit: cover;
-      height: 200px;
+      height: 250px;
       border-radius: 20px;
     }
 
@@ -67,7 +67,7 @@
         <div class="card-body">
           <h5 class="card-title"><strong><%= listing.name.capitalize %></strong></h5>
           <p class="card-text"><%= listing.description.capitalize %></p>
-          <p class="card-text">$<%= listing.price %></p>
+          <p class="card-text"><strong>$<%= listing.price %></strong> / day</p>
           <p class="card-text"><%= listing.address.capitalize %></p>
           <p class="card-text"><strong>Hosted by:</strong> <%= listing.user.username %></p>
           <div class="actions">
