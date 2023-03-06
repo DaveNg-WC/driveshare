@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  # root to: "listings#index"
+  root to: "pages#home"
 
   get "/my_listings", to: "pages#my_listings", as: "my_listings"
-  get "/home", to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
