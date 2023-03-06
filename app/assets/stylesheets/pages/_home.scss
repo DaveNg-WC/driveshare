@@ -1,1 +1,49 @@
 // Specific CSS for your home-page
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+
+.titles {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.row {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.hero {
+  display: flex;
+  flex-direction: row;
+}
+
+.hero h1 {
+  font-size: 40px;
+}

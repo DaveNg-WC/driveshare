@@ -29,7 +29,7 @@ class OffersController < ApplicationController
     @offer.status = "PROPOSAL"
 
     if @offer.update(offer_params)
-      redirect_to offer_path
+      redirect_to offer_path, alert: "The counter-offer has been sent!"
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @offer.status = "CONFIRMED"
     @offer.save
-    redirect_to offer_path, alert: "This offer is now accepted. Status has changed from Proposal to Confirmed."
+    redirect_to offer_path, alert: "You have accepted an offer. Status has changed from Proposal to Confirmed."
   end
 
   private
