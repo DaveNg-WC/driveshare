@@ -1,4 +1,7 @@
 class ListingsController < ApplicationController
+  # whitelisting these pages to public, without log in [devise]
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     @listings = Listing.all
   end
