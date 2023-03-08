@@ -4,6 +4,13 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @listings.geocoded.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude
+      }
+    end
   end
 
   def show
