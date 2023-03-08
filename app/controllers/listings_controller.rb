@@ -1,4 +1,7 @@
 class ListingsController < ApplicationController
+  # whitelisting these pages to public, without log in [devise]
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     @listings = Listing.all
   end
@@ -47,6 +50,9 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:brand, :transmission, :category, :description, :price, :address, :photo)
+
+    params.require(:listing).permit(:brand, :transmission, :category, :description, :price, :address, :photos[])
+
   end
+
 end

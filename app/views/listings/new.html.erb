@@ -36,30 +36,37 @@
     cursor: pointer;
   }
 
+  .upload {
+    margin-bottom: 10px;
+  }
+
 </style>
-  <h1>Create Listing</h1>
-  <%= form_for @listing do |f| %>
-    <%= f.label :brand %>
-    <%= f.select :brand, options_for_select([["Select One", ""], 'Tesla', 'Audi', 'BMW', 'Honda', 'Mazda'])%><br>
 
-    <%= f.label :category %>
-    <%= f.select :category, options_for_select([["Select One", ""], 'SUV', 'Sedan', 'Van', 'Lorry', 'Truck'])%><br>
 
-    <%= f.label :transmission %>
-    <%= f.select :transmission, options_for_select([["Select One", ""], 'Manual', 'Auto'])%><br>
+<h1>Create Listing</h1>
+<%= form_for @listing do |f| %>
+  <%= f.label :brand %>
+  <%= f.select :brand, options_for_select([["Select One", ""], 'Tesla', 'Audi', 'BMW', 'Honda', 'Mazda'])%><br>
 
-    <%= f.label :description %>
-    <%= f.text_area :description %><br>
+  <%= f.label :category %>
+  <%= f.select :category, options_for_select([["Select One", ""], 'SUV', 'Sedan', 'Van', 'Lorry', 'Truck'])%><br>
 
-    <%= f.label :price %>
-    <%= f.text_field :price %><br>
+  <%= f.label :transmission %>
+  <%= f.select :transmission, options_for_select([["Select One", ""], 'Manual', 'Auto'])%><br>
 
-    <%= f.label :address %>
-    <%= f.text_field :address %><br>
+  <%= f.label :description %>
+  <%= f.text_area :description %><br>
 
-    <%= f.label :photo %>
-    <%= f.file_field :photo %><br>
+  <%= f.label :price %>
+  <%= f.text_field :price %><br>
 
-    <%= f.submit "Create Listing" %>
+  <%= f.label :address %>
+  <%= f.text_field :address %><br>
 
-  <% end %>
+  <div class="upload">
+    <%= f.label :photos, "Upload Photos" %>
+    <%= f.file_field :photos, multiple: true %>
+  </div>
+
+  <%= f.submit "Create Listing" %>
+<% end %>

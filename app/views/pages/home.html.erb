@@ -5,7 +5,9 @@
     <div>
       <h1>Book a car near you & just drive in less than 5 minutes.</h1>
       <p>Rent cars from your neighborhood. Quick, easy and affordable.</p>
-      <a class="btn btn-primary btn-lg" href="#">Browse Cars Near You</a>
+      <%# use link_to helper instead of <a> tag %>
+      <%# <a class="btn btn-primary btn-lg" href=/listings>Browse Cars Near You</a> %>
+      <%= link_to "Browse Cars Near You", listings_path, class: "btn btn-primary btn-lg" %>
     </div>
     <div class="col-md-5">
         <%= image_tag "homepagecar.png", alt: "a red car", height: '250', class: "align-center" %>
@@ -55,8 +57,8 @@
       <div class="col-md-4">
         <div class="card mb-4">
           <div class="img-container">
-          <% if listing.photo.attached? %>
-            <%= image_tag listing.photo, class: "card-img-top" %>
+          <% if listing.photos.attached? %>
+            <%= image_tag listing.photos, class: "card-img-top" %>
           <% end %>
           </div>
           <div class="card-body">
@@ -80,5 +82,8 @@
 
 
 <div class="text-center">
-  <a class="btn btn-primary btn-lg mt-4" href="#">Browse More Cars</a>
+  <%# use link_to helper instead of <a> tag %>
+  <%# <a class="btn btn-primary btn-lg mt-4" href="/lisitngs">Browse More Cars</a> %>
+  <%= link_to "Browse Cars Near You", listings_path, class: "btn btn-primary btn-lg" %>
+
 </div>

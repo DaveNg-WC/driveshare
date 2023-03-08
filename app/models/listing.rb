@@ -8,5 +8,5 @@ class Listing < ApplicationRecord
   validates :address, presence: true
   validates :transmission, presence: true
   validates :category, presence: true
-  has_one_attached :photo
+  has_many_attached :photos
 end
