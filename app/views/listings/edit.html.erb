@@ -38,9 +38,15 @@
     }
   </style>
     <h1>Edit Listing</h1>
-    <%= form_for @listing do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %><br>
+      <%= form_for @listing do |f| %>
+      <%= f.label :brand %>
+      <%= f.select :brand, options_for_select([["Select One", ""], 'Tesla', 'Audi', 'BMW', 'Honda', 'Mazda'])%><br>
+
+      <%= f.label :category %>
+      <%= f.select :category, options_for_select([["Select One", ""], 'SUV', 'Sedan', 'Van', 'Lorry', 'Truck'])%><br>
+
+      <%= f.label :transmission %>
+      <%= f.select :transmission, options_for_select([["Select One", ""], 'Manual', 'Auto'])%><br>
 
       <%= f.label :description %>
       <%= f.text_area :description %><br>

@@ -55,8 +55,10 @@
         <% end %>
         </div>
         <div class="card-body">
-          <h5 class="card-title"><%= listing.name.capitalize %></h5>
-          <p class="card-text"><%= listing.description.capitalize %></p>
+          <h5 class="card-title"><%= listing.brand.capitalize %></h5>
+          <p class="card-text"><%= listing.category %></p>
+          <p class="card-text"><%= listing.transmission %></p>
+          <p class="card-text"><%= listing.description %></p>
           <p class="card-text">$<%= listing.price %></p>
           <p class="card-text"><%= listing.address.capitalize %></p>
           <p class="card-text"><%= listing.user.username %></p>

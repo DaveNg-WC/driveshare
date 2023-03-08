@@ -62,29 +62,30 @@
     }
   </style>
 
-  <%= link_to 'New Listing', new_listing_path, class: "btn btn-info mt-3 mb-3" %>
-  <div class="row">
-    <% @listings.each_with_index do |listing, index| %>
-      <div class="col-md-4">
-        <div class="card mb-4">
-          <div class="img-container">
-            <% if listing.photos.attached? %>
-              <% listing.photos.each do |photo| %>
-                <%= image_tag photo, class: "card-img-top" %>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title"><strong><%= listing.name.capitalize %></strong></h5>
-            <p class="card-text"><%= listing.description.capitalize %></p>
-            <p class="card-text"><strong>$<%= listing.price %></strong> / day</p>
-            <p class="card-text"><%= listing.address.capitalize %></p>
-            <p class="card-text"><strong>Hosted by:</strong> <%= listing.user.username %></p>
-            <div class="actions">
-              <%= link_to 'Show', listing_path(listing), class: "btn btn-outline-primary btn-rounded" %>
-              <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-outline-secondary btn-rounded" %>
-              <%= link_to "Delete", listing_path(listing), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger btn-rounded", method: :delete %>
-            </div>
+<%= link_to 'New Listing', new_listing_path, class: "btn btn-info mt-3 mb-3" %>
+<div class="row">
+  <% @listings.each_with_index do |listing, index| %>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="img-container">
+        <% if listing.photos.attached? %>
+          <% listing.photos.each do |photo| %>
+            <%= image_tag photo, class: "card-img-top" %>
+           <% end %>
+         <% end %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><strong><%= listing.brand.capitalize %></strong></h5>
+          <p class="card-text"><%= listing.category.capitalize %></p>
+          <p class="card-text"><%= listing.transmission.capitalize %></p>
+          <p class="card-text"><%= listing.description.capitalize %></p>
+          <p class="card-text"><strong>$<%= listing.price %></strong> / day</p>
+          <p class="card-text"><%= listing.address.capitalize %></p>
+          <p class="card-text"><strong>Hosted by:</strong> <%= listing.user.username %></p>
+          <div class="actions">
+          <%= link_to 'Show', listing_path(listing), class: "btn btn-primary" %>
+          <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-secondary" %>
+          <%= link_to "Delete", listing_path(listing), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger", method: :delete %>
           </div>
         </div>
       </div>

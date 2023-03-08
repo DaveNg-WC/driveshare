@@ -17,6 +17,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
+    # raise
     @listing.user_id = current_user.id # Hard coding. To update to user_id when devise is done.
     if @listing.save
       redirect_to listings_path, notice: "Listing was successfully created."
@@ -49,7 +50,9 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:name, :description, :price, :address, photos: [])
+
+    params.require(:listing).permit(:brand, :transmission, :category, :description, :price, :address, :photos[])
+
   end
 
 end
