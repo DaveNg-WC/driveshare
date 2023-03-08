@@ -1,7 +1,9 @@
 <div class="container" style="max-width: 1430px;">
-  <% if @listing.photo.attached? %>
-    <%= image_tag @listing.photo %>
-  <% end %>
+    <% if @listing.photos.attached? %>
+      <% @listing.photos.each do |photo| %>
+        <%= image_tag photo.variant(resize: '250x250'), class: "card-img-top" %>
+      <% end %>
+    <% end %>
   <h1><%= @listing.name.capitalize %></h1>
   <p><strong>Description:</strong> <%= @listing.description.capitalize %></p>
   <p><strong>Price:</strong> $<%= @listing.price %></p>
