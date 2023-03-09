@@ -6,7 +6,7 @@
     <% end %>
   <% end %>
 
-  <h2><%= @listing.brand.capitalize %> <%= @listing.transmission.capitalize %> </h2>
+  <h2><%= @listing.brand.to_s.capitalize %> <%= @listing.transmission.to_s.capitalize %> </h2>
   <p><strong>Category:</strong> <%= @listing.category.to_s.capitalize %></p>
   <p><strong>Transmission:</strong> <%= @listing.transmission.to_s.capitalize %></p>
   <p><strong>Description:</strong> <%= @listing.description.capitalize %></p>
