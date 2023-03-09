@@ -1,72 +1,87 @@
-<title>Create Listing</title>
-<style>
-  /* CSS code for the h1 element */
-  h1 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
+<div class="container">
+  <title>Create Listing</title>
+  <style>
+    /* CSS code for the h1 element */
+    h1 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
 
-  /* CSS code for the label elements */
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
+    .container {
+      margin-top: 25px;
+    }
 
-  /* CSS code for the input elements */
-  input[type="text"],
-  input[type="file"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
+    /* CSS code for the label elements */
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
 
-  /* CSS code for the submit button */
-  input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+    /* CSS code for the input elements */
+    input[type="text"],
+    input[type="file"],
 
-  .upload {
-    margin-bottom: 10px;
-  }
+    select {
+      width: 30%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
 
-</style>
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    /* CSS code for the submit button */
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .upload {
+      margin-bottom: 10px;
+    }
+
+  </style>
 
 
-<h1>Create Listing</h1>
-<%= form_for @listing do |f| %>
-  <%= f.label :brand %>
-  <%= f.select :brand, options_for_select([["Select One", ""], 'Tesla', 'Audi', 'BMW', 'Honda', 'Mazda'])%><br>
+  <h1>Create Listing</h1>
+  <%= form_for @listing do |f| %>
+    <%= f.label :brand %>
+    <%= f.select :brand, options_for_select([["Select One", ""], 'Tesla', 'Audi', 'BMW', 'Honda', 'Mazda'])%><br>
 
-  <%= f.label :category %>
-  <%= f.select :category, options_for_select([["Select One", ""], 'SUV', 'Sedan', 'Van', 'Lorry', 'Truck'])%><br>
+    <%= f.label :category %>
+    <%= f.select :category, options_for_select([["Select One", ""], 'SUV', 'Sedan', 'Van', 'Lorry', 'Truck'])%><br>
 
-  <%= f.label :transmission %>
-  <%= f.select :transmission, options_for_select([["Select One", ""], 'Manual', 'Auto'])%><br>
+    <%= f.label :transmission %>
+    <%= f.select :transmission, options_for_select([["Select One", ""], 'Manual', 'Auto'])%><br>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %><br>
+    <%= f.label :description %>
+    <%= f.text_area :description %><br>
 
-  <%= f.label :price %>
-  <%= f.text_field :price %><br>
+    <%= f.label :price, "Price Per Day" %>
+    <%= f.text_field :price %><br>
 
-  <%= f.label :address %>
-  <%= f.text_field :address %><br>
+    <%= f.label :address %>
+    <%= f.text_field :address %><br>
 
-  <div class="upload">
-    <%= f.label :photos, "Upload Photos" %>
-    <%= f.file_field :photos, multiple: true %>
-  </div>
+    <div class="upload">
+      <%= f.label :photos, "Upload Photos" %>
+      <%= f.file_field :photos, multiple: true %>
+    </div>
 
-  <%= f.submit "Create Listing" %>
-<% end %>
+    <%= f.submit "Create Listing" %>
+  <% end %>
+</div>

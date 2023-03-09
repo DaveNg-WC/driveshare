@@ -62,7 +62,7 @@
           <% end %>
           </div>
           <div class="card-body">
-            <h5 class="card-title"><%= listing.name.capitalize %></h5>
+            <h5 class="card-title"><%= listing.category.to_s.capitalize %></h5>
             <p class="card-text"><%= listing.description.capitalize %></p>
             <p class="card-text">$<%= listing.price %> /day</p>
             <p class="card-text"><%= listing.address.capitalize %></p>

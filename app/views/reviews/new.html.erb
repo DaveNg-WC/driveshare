@@ -1,11 +1,27 @@
-# this is for new review form
-<h1>New review</h1>
-<%= simple_form_for [@listing, @review] do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :description %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <h1>New review</h1>
 
-# !!!!!
-# need to have a 'show' (views/listings/show.html.erb)? to display all the reviews under the listing?
-# refering to lecture 'advanced routing' 'Create view' section
+  Here are some details for your previous booking! Share some thoughts below! <br>
+
+  <strong><%= @listing.brand.capitalize %> <%= @listing.transmission.capitalize %></strong>
+  <strong>Category:</strong> <%= @listing.category.to_s.capitalize %><br>
+  <strong>Transmission:</strong> <%= @listing.transmission.to_s.capitalize %><br>
+  <strong>Description:</strong> <%= @listing.description.capitalize %><br>
+  <strong>Price:</strong> $<%= @listing.price %><br>
+  <strong>Address:</strong> <%= @listing.address.capitalize %><br>
+  <strong>Your Host:</strong> <%= @listing.user.first_name %> <%= @listing.user.last_name %><br>
+  <br>
+
+  <%= simple_form_for [@listing, @review] do |f| %>
+    <%= f.input :rating %>
+    <%= f.input :description %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+
+
+
+<%# # !!!!! %>
+<%# # need to have a 'show' (views/listings/show.html.erb)? to display all the reviews under the listing? %>
+<%# # refering to lecture 'advanced routing' 'Create view' section %>

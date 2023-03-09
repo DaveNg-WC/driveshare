@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "/my_listings", to: "pages#my_listings", as: "my_listings"
+  get "/my_offers", to: "pages#my_offers", as: "my_offers"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
