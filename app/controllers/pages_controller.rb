@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   end
 
   def my_listings
-    @my_listings = current_user.listings
+    @listings = current_user.listings
   end
 
   def my_offers
