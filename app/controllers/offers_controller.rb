@@ -13,14 +13,15 @@ class OffersController < ApplicationController
   end
 
   def create
-    @offer = Offer.new(offer_params)
-    # @offer.user_id = @CurrentUserLoggedIn.id
-    # @offer.listing_id = params[:listing_id]
+    @listing = Listing.find(params[:listing_id])
+    @offer = Offer.new(price: params[:price], start_date: params[:start_date], end_date: params[:end_date])
+    @offer.listing = @listing
+    @offer.user = current_user
 
     if @offer.save
-      # redirect_to specific_offer_page
+      redirect_to @listing, notice: "Offer sent successfully."
     else
-      render :new
+      render 'new'
     end
   end
 
@@ -39,7 +40,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @offer.destroy
 
-    # redirect_to current_listing_path
+    redirect_to listings_path, notice: "Offer was successfully deleted."
   end
 
   def accept_offer

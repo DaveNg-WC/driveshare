@@ -57,12 +57,12 @@
       <div class="col-md-4">
         <div class="card mb-4">
           <div class="img-container">
-          <% if listing.photo.attached? %>
-            <%= image_tag listing.photo, class: "card-img-top" %>
+          <% if listing.photos.attached? %>
+            <%= image_tag listing.photos, class: "card-img-top" %>
           <% end %>
           </div>
           <div class="card-body">
-            <h5 class="card-title"><%= listing.name.capitalize %></h5>
+            <h5 class="card-title"><%= listing.category.to_s.capitalize %></h5>
             <p class="card-text"><%= listing.description.capitalize %></p>
             <p class="card-text">$<%= listing.price %> /day</p>
             <p class="card-text"><%= listing.address.capitalize %></p>
