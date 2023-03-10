@@ -22,8 +22,8 @@ User.create(email: "test6@gmail.com", password: "aabbccdd", first_name: "Mason",
 User.create(email: "test7@gmail.com", password: "abcdefghi", first_name: "Ian", last_name: "Tan", username: "iantan", contact_number: "12345678", host: true)
 User.create(email: "test8@gmail.com", password: "aabbccdd", first_name: "Patsy", last_name: "Koh", username: "patsykoh", contact_number: "87654321", host: true)
 
-Listing.create(brand: "Audi", category: "Sedan", transmission: "Auto", description: "Best Audi in town", price: 90, address: "dover", user_id: 1)
-Listing.create(brand: "Tesla", category: "Sedan", transmission: "Auto", description: "Best Tesla in town", price: 110, address: "orchard", user_id: 2)
+Listing.create(name: "Weekend Date Audi A4", brand: "Audi", category: "Sedan", transmission: "Auto", description: "Best Audi in town", price: 90, address: "dover", user_id: 1)
+Listing.create(name: "0-100 3sec Model 3 Performance", brand: "Tesla", category: "Sedan", transmission: "Auto", description: "Best Tesla in town", price: 110, address: "orchard", user_id: 2)
 
 # Extra 6 Listings
 Listing.create(name: "Weeknd BMW (JB allowed)", brand: "BMW", category: "Sedan", transmission: "Auto", description: "Best BMW in town", price: 90, address: "pasir ris", user_id: 3)
