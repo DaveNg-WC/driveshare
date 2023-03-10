@@ -13,11 +13,12 @@ Rails.application.routes.draw do
 
   resources :listings do
     resources :reviews, only: %i[new create index]
+    resources :offers, only: [:create] # Allows creating a offer straight from listing
   end
 
   resources :reviews, only: %i[destroy]
 
-  resources :offers, only: [:index, :show, :new, :create, :update, :destroy] do
+  resources :offers, only: [:index, :show, :new, :update, :destroy] do
     member do
       put :accept_offer
     end

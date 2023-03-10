@@ -50,9 +50,10 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-
     params.require(:listing).permit(:brand, :transmission, :category, :description, :price, :address, :photos)
-
   end
 
+  def offer_params
+    params.require(:offer).permit(:price, :start_date, :end_date)
+  end
 end
