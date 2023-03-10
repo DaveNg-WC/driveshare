@@ -1,5 +1,7 @@
   <div class="row">
-    <% @listings.each do |listing| %>
+    <%# declare locals variable when using partial %>
+    <%# render "shared/listings_cards", listings: @my_listings, show_edit_button: true %>
+    <% local_assigns[:listings].each do |listing| %>
       <div class="col-md-4">
         <div class="card mb-4">
           <div class="img-container">
@@ -16,6 +18,16 @@
             <p class="card-text"><strong>Hosted by:</strong> <%= listing.user.username %></p>
             <div class="actions">
               <%= link_to 'Show', listing_path(listing), class: "btn btn-primary" %>
+
+              <%# declare locals when using partial to show button %>
+              <%# render "shared/listings_cards", listings: @my_listings, show_edit_button: true %>
+              <% if local_assigns[:edit_button] %>
+                <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-primary" %>
+              <% end %>
+
+              <% if local_assigns[:delete_button] %>
+                <%= link_to 'Delete', listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
+              <% end %>
             </div>
           </div>
         </div>
