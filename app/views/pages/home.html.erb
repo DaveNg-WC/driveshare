@@ -52,31 +52,11 @@
 <h2 class="titles"> Top-Rated Cars Available For Rent </h2>
 
 <div class="container">
-  <div class="row">
-    <% @listings.each do |listing| %>
-      <div class="col-md-4">
-        <div class="card mb-4">
-          <div class="img-container">
-            <% if listing.photos.attached? %>
-              <%= image_tag listing.photos, class: "card-img-top" %>
-            <% end %>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title"><strong><%= listing.name.capitalize %></strong></h5>
-            <p class="card-title"><%= listing.category.capitalize %></p>
-            <p class="card-text"><%= listing.description.capitalize %></p>
-            <p class="card-text"><strong>$<%= listing.price %></strong> / day</p>
-            <p class="card-text"><%= listing.address.capitalize %></p>
-            <p class="card-text"><strong>Hosted by:</strong> <%= listing.user.username %></p>
-            <div class="actions">
-              <%= link_to 'Show', listing_path(listing), class: "btn btn-primary" %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <%# check app/views/shared/_listings_cards.html.erb to edit %>
+  <%# make sure @listings = Lisitng.all is defined in controller %>
+  <%= render "shared/listings_cards" %>
 </div>
+
 
 
 <div class="text-center">
