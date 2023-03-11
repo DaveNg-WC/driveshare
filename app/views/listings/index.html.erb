@@ -54,8 +54,30 @@
 
 <div class="container">
   <h1>Listings</h1>
+  <%= form_with url: listings_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :search_brand,
+    params[:search_brand],
+    class: "form-control",
+    placeholder: "Search by Brand"
+  %>
+  <%= text_field_tag :search_price,
+    params[:search_price],
+    class: "form-control",
+    placeholder: "Search by Price, less than"
+  %>
+  <%= text_field_tag :search_category,
+    params[:search_category],
+    class: "form-control",
+    placeholder: "Search by Category"
+  %>
+  <%= text_field_tag :search_transmission,
+    params[:search_transmission],
+    class: "form-control",
+    placeholder: "Search by Transmission"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
   <div id="map" style='width: 400px; height: 300px;'>
-
   </div>
 
   <%= link_to 'New Listing', new_listing_path, class: "btn btn-info mt-3 mb-3" %>

@@ -5,14 +5,14 @@
       <%= image_tag photo.variant(resize: '250x250'), class: "card-img-top" %>
     <% end %>
   <% end %>
-
-  <h2><%= @listing.brand.to_s.capitalize %> <%= @listing.transmission.to_s.capitalize %></h2>
-  <p><strong>Category:</strong> <%= @listing.category.to_s.capitalize %></p>
-  <p><strong>Transmission:</strong> <%= @listing.transmission.to_s.capitalize %></p>
+  <h1><%= @listing.name.capitalize %></h1>
+  <p><strong>Brand:</strong> <%= @listing.brand %></p>
+  <p><strong>Category:</strong> <%= @listing.category %></p>
+  <p><strong>Transmission:</strong> <%= @listing.transmission.capitalize %></p>
   <p><strong>Description:</strong> <%= @listing.description.capitalize %></p>
   <p><strong>Price:</strong> $<%= @listing.price %></p>
   <p><strong>Address:</strong> <%= @listing.address.capitalize %></p>
-  <p><strong>User:</strong> <%= @listing.user.first_name %> <%= @listing.user.last_name %></p>
+  <p><strong>User:</strong> <%= @listing.username %></p>
 
 
   <br>
