@@ -60,7 +60,7 @@
   <h1>Create Listing</h1>
   <%= form_for @listing do |f| %>
     <%= f.label :brand %>
-    <%= f.select :brand, options_for_select([["Select One", ""], 'Tesla', 'Audi', 'BMW', 'Honda', 'Mazda'])%><br>
+    <%= f.select :brand, options_for_select([["Select One", ""], 'Tesla', 'Audi', 'BMW', 'Honda', 'Mazda', 'Toyota', 'Mercedes-Benz', 'Hyundai', 'Kia', 'Nissan'])%><br>
 
     <%= f.label :category %>
     <%= f.select :category, options_for_select([["Select One", ""], 'SUV', 'Sedan', 'Van', 'Lorry', 'Truck'])%><br>
