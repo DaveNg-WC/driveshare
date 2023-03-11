@@ -25,7 +25,11 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
+# commented this out based on Geocoding lecture
+# gem "jbuilder"
+
+# Maps
+gem "geocoder"
 
 gem 'bootstrap', '~> 5.1.0'
 

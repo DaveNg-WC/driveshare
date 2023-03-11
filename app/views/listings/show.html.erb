@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 20px">
+<div class="container" style="margin-left: 8px">
 
   <% if @listing.photos.attached? %>
     <% @listing.photos.each do |photo| %>
@@ -47,7 +47,7 @@
         <%= form.date_field :end_date, class: "form-control" %>
       </div>
       <br>
-      <%= form.submit "Send Offer", class: "btn btn-primary" %>
+      <%= form.submit "Send Offer", class: "btn btn-outline-primary" %>
     <% end %>
   <% else %>
     <p><i>- This is your listing -</i></p>
