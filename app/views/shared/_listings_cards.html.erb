@@ -6,7 +6,9 @@
         <div class="card mb-4 card-trip">
           <div class="img-container">
             <% if listing.photos.attached? %>
-              <%= image_tag listing.photos, class: "card-img-top trip-image" %>
+              <% listing.photos.each do |photo| %>
+                <%= image_tag photo, class: "card-img-top" %>
+              <% end %>
             <% end %>
           </div>
           <div class="card-body">
