@@ -1,13 +1,13 @@
 
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/13861/IMG_3496bfree.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);">
+<div class="banner" style="background-color: white;">
   <div class="container hero">
     <div>
-      <h1>Book a car near you & just drive in less than 5 minutes.</h1>
+      <h1>Book a car near you & <span>just drive</span> in less than 5 minutes.</h1>
       <p>Rent cars from your neighborhood. Quick, easy and affordable.</p>
       <%# use link_to helper instead of <a> tag %>
       <%# <a class="btn btn-primary btn-lg" href=/listings>Browse Cars Near You</a> %>
-      <%= link_to "Browse Cars Near You", listings_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to "Browse Cars Near You", listings_path, class: " my-button" %>
     </div>
     <div class="col-md-5">
         <%= image_tag "homepagecar.png", alt: "a red car", height: '250', class: "align-center" %>
@@ -29,13 +29,8 @@
 
 <div class="container cards d-flex justify-content-around">
   <div>
-<<<<<<< HEAD
-    <div class="card" style="width: 18rem; height: 200px;">
-      <i class="fa-solid fa-money-bill-1"></i>
-=======
     <div class="card" style="width: 300px; height: 350px;">
       <img class="card-img-top" src="https://res.cloudinary.com/dbmur41un/image/upload/v1678509010/homepage2_m41xl7.jpg" alt="Card image cap" style="height: 200px">
->>>>>>> master
       <div class="card-body">
         <h2 class="card-text">Convenient</h2>
         <p class="card-text">Browse cars only that are nearby you. Save time and effort to you can run your errands as soon as you can.</p>
@@ -83,7 +78,7 @@
             <p class="card-text"><%= listing.address.capitalize %></p>
             <p class="card-text"><%= listing.user.first_name %></p>
             <div class="actions">
-              <%= link_to 'Show', listing_path(listing), class: "btn btn-primary" %>
+              <%= link_to 'Show', listing_path(listing), class: "my-button" %>
             </div>
           </div>
         </div>
@@ -105,8 +100,6 @@
 </div>
 
 <br>
-
-
 <div class="text-center">
   <%# use link_to helper instead of <a> tag %>
   <%# <a class="btn btn-primary btn-lg mt-4" href="/lisitngs">Browse More Cars</a> %>

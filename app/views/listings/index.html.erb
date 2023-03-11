@@ -2,10 +2,6 @@
   <h1>Listings</h1>
   <%= link_to 'New Listing', new_listing_path, class: "btn btn-info mt-3 mb-3" %>
 
-  </div>
-
-  <%= link_to 'New Listing', new_listing_path, class: "btn btn-info mt-3 mb-3" %>
-
   <%# check app/views/shared/_listings_cards.html.erb to edit %>
   <%# make sure @listings = Lisitng.all is defined in controller %>
   <%= render "shared/listings_cards", listings: @listings %>

@@ -1,5 +1,5 @@
 .trip-image {
-  width: 400px;
+  width: inherit;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   height: inherit;
@@ -10,7 +10,7 @@
 }
 
 .card-trip {
-  width: 400px;
+  width: 350px;
   margin: auto;
   margin-top: 20px;
   box-shadow: 0 0 2px rgb(0, 0, 0 / 0.5);
