@@ -3,15 +3,21 @@ class ListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    if params[:query1].present? && params[:query2].blank?
-      @listings = Listing.where('brand ILIKE ?', params[:query1])
-    elsif params[:query1].blank? && params[:query2].present?
-      @listings = Listing.where('price <= ?', params[:query2])
-    elsif params[:query1].present? && params[:query2].present?
-      @listings = Listing.where('brand ILIKE ? AND price <= ?', params[:query1], params[:query2])
-    else
-      @listings = Listing.all
-    end
+    # if params[:query1].present? && params[:query2].blank?
+    #   @listings = Listing.where('brand ILIKE ?', params[:query1])
+    # elsif params[:query1].blank? && params[:query2].present?
+    #   @listings = Listing.where('price <= ?', params[:query2])
+    # elsif params[:query1].present? && params[:query2].present?
+    #   @listings = Listing.where('brand ILIKE ? AND price <= ?', params[:query1], params[:query2])
+    # else
+    #   @listings = Listing.all
+    # end
+    @listings = Listing.all
+    @listings = @listings.where('brand ILIKE ?', params[:search_brand]) if params['search_brand'].present?
+    @listings = @listings.where('price <= ?', params[:search_price]) if params['search_price'].present?
+    @listings = @listings.where('brand ILIKE ?', params[:search_category]) if params['search_category'].present?
+    @listings = @listings.where('brand ILIKE ?', params[:search_transmission]) if params['search_category'].present?
+
     # The `geocoded` scope filters only flats with coordinates
     @markers = @listings.geocoded.map do |listing|
       {
