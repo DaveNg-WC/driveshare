@@ -42,7 +42,7 @@ class ListingsController < ApplicationController
 
     @listing.user_id = current_user.id # Hard coding. To update to user_id when devise is done.
     if @listing.save
-      redirect_to listings_path, notice: "Listing was successfully created."
+      redirect_to my_listings_path, notice: "Listing was successfully created."
     else
       render :new
     end
@@ -66,7 +66,7 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     @listing.destroy
 
-    redirect_to listings_path, notice: "Listing was successfully deleted."
+    redirect_to my_listings_path, notice: "Listing was successfully deleted."
   end
 
   private
