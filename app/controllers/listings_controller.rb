@@ -1,4 +1,7 @@
 class ListingsController < ApplicationController
+  # whitelisting these pages to public, without log in [devise]
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     if params[:query1].present? && params[:query2].blank?
       @listings = Listing.where('brand ILIKE ?', params[:query1])
@@ -8,6 +11,13 @@ class ListingsController < ApplicationController
       @listings = Listing.where('brand ILIKE ? AND price <= ?', params[:query1], params[:query2])
     else
       @listings = Listing.all
+    end
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @listings.geocoded.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude
+      }
     end
   end
 
@@ -55,6 +65,10 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:brand, :transmission, :category, :description, :price, :address, :photo)
+    params.require(:listing).permit(:brand, :transmission, :category, :description, :price, :address, :photos)
+  end
+
+  def offer_params
+    params.require(:offer).permit(:price, :start_date, :end_date)
   end
 end
