@@ -10,7 +10,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "components/cards"; /* allows card-listing */
+@import "components/_listings_cards"; /* allows card-listing */
 
 body, h1, h2, h3 {
   font-family: "Helvetica Neue";
