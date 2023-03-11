@@ -1,0 +1,102 @@
+.trip-image {
+  width: inherit;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  height: inherit;
+}
+
+.trip-left {
+  width: 350px;
+}
+
+.card-trip {
+  width: 350px;
+  margin: auto;
+  margin-top: 20px;
+  box-shadow: 0 0 0px rgb(0, 0, 0 / 0.5);
+  position: relative;
+  border-radius: 5px;
+  border: 0px;
+}
+
+.mini-avatar {
+  width: 60px;
+  border-radius: 50%;
+  border: white 2px solid;
+  position: absolute;
+  bottom: 67px;
+  right: 20px;
+}
+
+.trip-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px 15px 20px;
+}
+
+.trip-left p {
+  font-size: 13px;
+  margin: 0;
+}
+
+.trip-left h2 {
+  font-size: 17px;
+  margin: 0;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  font-family: 'Inter';
+}
+
+.trip-right {
+  display: flex;
+  align-items: flex-end;
+  font-family: 'Inter';
+  font-weight: 600;
+}
+
+.card-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+}
+
+.listing-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: 'Inter';
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.address {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: gray;
+}
+
+
+.listing-details .price span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: black;
+  font-weight: 600;
+}
+
+.price {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: rgb(34, 34, 34);
+}
+
+.listing-image {
+  height: 20%;
+}
+
+.img-container {
+
+}
+
+.card-img-top {
+
+}

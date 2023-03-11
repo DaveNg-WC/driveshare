@@ -56,10 +56,10 @@
 </style>
 
 
-<h1>Create Listing</h1>
-<%= form_for @listing do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, required: true %><br>
+  <h1>Create Listing</h1>
+  <%= form_for @listing do |f| %>
+    <%= f.label :name  %>
+    <%= f.text_field :name %><br>
 
   <%= f.label :brand %>
   <%= f.select :brand, options_for_select([["Select One", ""], 'Tesla', 'Audi', 'BMW', 'Honda', 'Mazda']), required: true %><br>
