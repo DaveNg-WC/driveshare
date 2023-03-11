@@ -1,10 +1,10 @@
-<div class="container" style="margin-left: 8px">
+<div class="container" style="margin-top: 16px">
 
   <% if @listing.photos.attached? %>
-    <% @listing.photos.each do |photo| %>
-      <%= image_tag photo.variant(resize: '250x250'), class: "card-img-top" %>
+        <% @listing.photos.each do |photo| %>
+        <%= image_tag photo, class: "card-img-top", style: "width: 250px; height:250px;" %>
+        <% end %>
     <% end %>
-  <% end %>
 
   <h2><%= @listing.brand.to_s.capitalize %> <%= @listing.transmission.to_s.capitalize %></h2>
   <p><strong>Category:</strong> <%= @listing.category.to_s.capitalize %></p>

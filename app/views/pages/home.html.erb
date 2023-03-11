@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<h2 class="titles"> 3 Simple Steps To Renting A Car</h2>
+<h2 class="titles"> Why Rent On DriveShare</h2>
 
 <style>
   .card-img-top {
@@ -52,7 +52,7 @@
     <div class="card" style="width: 300px; height: 350px;">
       <img class="card-img-top" src="https://res.cloudinary.com/dbmur41un/image/upload/v1677920416/bzeevft501zw77kt40v6lftj96ly.jpg" alt="Card image cap" style="height: 200px">
       <div class="card-body">
-        <h2 class="card-text">Many Choices</h2>
+        <h2 class="card-text">Freedom </h2>
         <p class="card-text">More choices compared to other traditional rental companies.</p>
       </div>
     </div>
@@ -65,23 +65,10 @@
   <%= render "shared/listings_cards", listings: @listings %>
 </div>
 
-<div class="card-trip">
-  <img class="trip-image" src="https://www.intrepidtravel.com/adventures/wp-content/uploads/2019/05/Intrepid-Travel-borneo_mt-kinabalu_female-pax.jpg">
-  <div class="trip-bottom">
-    <div class="trip-left">
-      <h2>Explore and conquer Mt. Kinabalu</h2>
-      <p>Tallest mountain in Malaysia and it's summit sits at 4.1KM above sea level.</p>
-      <p>What the hell?</p>
-    </div>
-    <div class="trip-right">S$710</div>
-  </div>
-  <img class="mini-avatar" src="https://kitt.lewagon.com/placeholder/users/krokrob">
-</div>
-
 <br>
 <div class="text-center">
   <%# use link_to helper instead of <a> tag %>
   <%# <a class="btn btn-primary btn-lg mt-4" href="/lisitngs">Browse More Cars</a> %>
-  <%= link_to "Browse Cars Near You", listings_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to "Browse Cars Near You", listings_path, class: "my-button" %>
 
 </div>
