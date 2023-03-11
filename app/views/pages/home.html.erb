@@ -1,13 +1,13 @@
 
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/13861/IMG_3496bfree.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);">
+<div class="banner" style="background-color: white;">
   <div class="container hero">
     <div>
-      <h1>Book a car near you & just drive in less than 5 minutes.</h1>
+      <h1>Book a car near you & <span>just drive</span> in less than 5 minutes.</h1>
       <p>Rent cars from your neighborhood. Quick, easy and affordable.</p>
       <%# use link_to helper instead of <a> tag %>
       <%# <a class="btn btn-primary btn-lg" href=/listings>Browse Cars Near You</a> %>
-      <%= link_to "Browse Cars Near You", listings_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to "Browse Cars Near You", listings_path, class: " my-button" %>
     </div>
     <div class="col-md-5">
         <%= image_tag "homepagecar.png", alt: "a red car", height: '250', class: "align-center" %>
@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<h2 class="titles"> 3 Simple Steps To Renting A Car</h2>
+<h2 class="titles"> Why Rent On DriveShare</h2>
 
 <style>
   .card-img-top {
@@ -52,7 +52,7 @@
     <div class="card" style="width: 300px; height: 350px;">
       <img class="card-img-top" src="https://res.cloudinary.com/dbmur41un/image/upload/v1677920416/bzeevft501zw77kt40v6lftj96ly.jpg" alt="Card image cap" style="height: 200px">
       <div class="card-body">
-        <h2 class="card-text">Many Choices</h2>
+        <h2 class="card-text">Freedom </h2>
         <p class="card-text">More choices compared to other traditional rental companies.</p>
       </div>
     </div>
@@ -62,16 +62,13 @@
 <h2 class="titles"> Top-Rated Cars Available For Rent </h2>
 
 <div class="container">
-  <%# check app/views/shared/_listings_cards.html.erb to edit %>
-  <%# make sure @listings = Lisitng.all is defined in controller %>
   <%= render "shared/listings_cards", listings: @listings %>
 </div>
 
-
-
+<br>
 <div class="text-center">
   <%# use link_to helper instead of <a> tag %>
   <%# <a class="btn btn-primary btn-lg mt-4" href="/lisitngs">Browse More Cars</a> %>
-  <%= link_to "Browse Cars Near You", listings_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to "Browse Cars Near You", listings_path, class: "my-button" %>
 
 </div>

@@ -3,23 +3,24 @@
     <%# render "shared/listings_cards", listings: @my_listings, show_edit_button: true %>
     <% local_assigns[:listings].each do |listing| %>
       <div class="col-md-4">
-        <div class="card mb-4">
+        <div class="card mb-4 card-trip">
           <div class="img-container">
-            <% if listing.photos.attached? %>
-              <% listing.photos.each do |photo| %>
-                <%= image_tag photo, class: "card-img-top" %>
+            <div class="listing-image">
+              <% if listing.photos.attached? %>
+                <% listing.photos.each do |photo| %>
+                  <%= image_tag photo, class: "card-img-top" %>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
           <div class="card-body">
-            <h5 class="card-title"><strong><%= listing.name.capitalize %></strong></h5>
-            <p class="card-title"><%= listing.category.capitalize %></p>
-            <p class="card-text"><%= listing.description.capitalize %></p>
-            <p class="card-text"><strong>$<%= listing.price %></strong> / day</p>
-            <p class="card-text"><%= listing.address.capitalize %></p>
-            <p class="card-text"><strong>Hosted by:</strong> <%= listing.user.username %></p>
+            <h5 class="card-title"><strong><%= listing.name.upcase %></strong></h5>
+            <div class="listing-details">
+              <div class="address"><%= listing.address.upcase %></div>
+              <div class="price"><span>S$<%= listing.price %></span> /day</div>
+            </div>
             <div class="actions">
-              <%= link_to 'Show', listing_path(listing), class: "btn btn-primary" %>
+              <%= link_to 'Show', listing_path(listing), class: "my-button" %>
 
               <%# declare locals when using partial to show button %>
               <%# render "shared/listings_cards", listings: @my_listings, show_edit_button: true %>

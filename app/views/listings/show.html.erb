@@ -1,14 +1,14 @@
-<div class="container" style="margin-left: 8px">
+<div class="container" style="margin-top: 16px">
 
   <% if @listing.photos.attached? %>
-    <% @listing.photos.each do |photo| %>
-      <%= image_tag photo.variant(resize: '250x250'), class: "card-img-top" %>
+        <% @listing.photos.each do |photo| %>
+        <%= image_tag photo, class: "card-img-top", style: "width: 250px; height:250px;" %>
+        <% end %>
     <% end %>
-  <% end %>
-  <h1><%= @listing.name.capitalize %></h1>
-  <p><strong>Brand:</strong> <%= @listing.brand %></p>
-  <p><strong>Category:</strong> <%= @listing.category %></p>
-  <p><strong>Transmission:</strong> <%= @listing.transmission.capitalize %></p>
+
+  <h2><%= @listing.brand.to_s.capitalize %> <%= @listing.transmission.to_s.capitalize %></h2>
+  <p><strong>Category:</strong> <%= @listing.category.to_s.capitalize %></p>
+  <p><strong>Transmission:</strong> <%= @listing.transmission.to_s.capitalize %></p>
   <p><strong>Description:</strong> <%= @listing.description.capitalize %></p>
   <p><strong>Price:</strong> $<%= @listing.price %></p>
   <p><strong>Address:</strong> <%= @listing.address.capitalize %></p>
@@ -18,20 +18,20 @@
   <br>
 
   <% if @listing.user == current_user %>
-    <%= link_to 'Edit', edit_listing_path(@listing) %>
-    <p></p>
+    <%= link_to 'Edit', edit_listing_path(@listing) %> |
+  <% else %>
+  <% end %>
+  <%= link_to 'Back', listings_path %>
+  <br>
+  <br>
+
   <%# below is to test function of creating a new review for listing %>
 
-  <% else %>
-    <%= link_to 'Back', listings_path %>
-    <%# <%= link_to "Leave a Review", new_listing_review_path(@listing),
-        class: "btn btn-primary",
-        style: "color: white;"
-    %>
-  <% end %>
   <p></p>
 
-  <p><strong> Make a booking now: </strong></p>
+  <% if @listing.user != current_user %>
+
+    <p><strong> Make a booking now: </strong></p>
 
     <%= form_with(model: @offer, url: listing_offers_path(@listing), local: true) do |form| %>
       <div class="form-group">
@@ -49,25 +49,37 @@
       <br>
       <%= form.submit "Send Offer", class: "btn btn-outline-primary" %>
     <% end %>
+  <% else %>
+    <p><i>- This is your listing -</i></p>
+  <% end %>
 
-    <br>
-    <p><strong>Reviews</strong></p>
-    <% if @reviews.count == 0 %>
-      <%= "There are currently no reviews for this listing!" %>
-    <% else %>
-      <ul class="list-group">
-        <% @reviews.each do |review| %>
-          <li class="list-group-item">
-          <%= review.rating %> <%= review.description %>
-          <% if review.user == current_user %>
-            <%= link_to "Delete", review_path(review),
-            class: "btn btn-warning",
-            style: "color: white;",
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete this review?"}
-            %>
-          <% end %>
-          </li>
+  <br>
+  <p><strong>Reviews</strong></p>
+  <% if @reviews.count == 0 %>
+    <%= "There are currently no reviews for this listing!" %>
+  <% else %>
+    <ul class="list-group">
+      <% @reviews.each do |review| %>
+        <li class="list-group-item">
+        <%= review.rating %> <%= review.description %>
+        <% if review.user == current_user %>
+          <%= link_to "Delete", review_path(review),
+          class: "btn btn-warning",
+          style: "color: white;",
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete this review?"}
+          %>
         <% end %>
-      </ul>
-    <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <br>
+
+  <% if @listing.user != current_user %>
+    <%= link_to "Leave a Review", new_listing_review_path(@listing),
+        class: "btn btn-primary",
+        style: "color: white;"
+    %>
+  <% else %>
+  <% end %>
 </div>

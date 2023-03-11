@@ -1,58 +1,4 @@
-<style>
-  table {
-    border-collapse: collapse;
-    width: 90%;
-  }
-
-  th, td {
-    text-align: left;
-    padding: 8px;
-  }
-
-  th {
-    background-color: #4CAF50;
-    color: black;
-  }
-
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-
-  tr:hover {
-    background-color: #ddd;
-  }
-
-  .actions {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .button {
-    background-color: #87CEEB;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-
-  .card-img-top {
-    object-fit: cover;
-    height: 250px;
-    border-radius: 20px;
-  }
-
-  .card:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
-  transition: 0.3s;
-  }
-
-  .card {
-  border-radius: 20px;
-  }
-</style>
-
-<div class="container">
+<div class="container" style="margin-top: 15px;">
   <h1>Listings</h1>
   <%= form_with url: listings_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :search_brand,
@@ -75,7 +21,7 @@
     class: "form-control",
     placeholder: "Search by Transmission"
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= submit_tag "Search", class: "my-button"%>
   <% end %>
 
 
@@ -91,6 +37,4 @@
   <%# check app/views/shared/_listings_cards.html.erb to edit %>
   <%# make sure @listings = Lisitng.all is defined in controller %>
   <%= render "shared/listings_cards", listings: @listings %>
-
-
 </div>
