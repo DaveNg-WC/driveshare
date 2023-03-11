@@ -55,6 +55,21 @@
   </style>
 
 <%= link_to 'New Listing', new_listing_path, class: "btn btn-info mt-3 mb-3" %>
+
+<%= form_with url: listings_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query1,
+    params[:query1],
+    class: "form-control",
+    placeholder: "Search by Brand"
+  %>
+  <%= text_field_tag :query2,
+    params[:query2],
+    class: "form-control",
+    placeholder: "Search by Price per day"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <div class="row">
   <% @listings.each_with_index do |listing, index| %>
     <div class="col-md-4">

@@ -47,6 +47,20 @@
   </div>
 </div>
 
+<%= form_with url: listings_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query1,
+    params[:query1],
+    class: "form-control",
+    placeholder: "Search by Brand"
+  %>
+  <%= text_field_tag :query2,
+    params[:query2],
+    class: "form-control",
+    placeholder: "Search by Price per day"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <h2 class="titles"> Top-Rated Cars Available For Rent </h2>
 
 <div class="container">
@@ -60,7 +74,9 @@
           <% end %>
           </div>
           <div class="card-body">
-            <h5 class="card-title"><%= listing.name.capitalize %></h5>
+            <h5 class="card-title"><%= listing.brand.capitalize %></h5>
+            <p class="card-text"><%= listing.category %></p>
+            <p class="card-text"><%= listing.transmission.capitalize %></p>
             <p class="card-text"><%= listing.description.capitalize %></p>
             <p class="card-text">$<%= listing.price %> /day</p>
             <p class="card-text"><%= listing.address.capitalize %></p>

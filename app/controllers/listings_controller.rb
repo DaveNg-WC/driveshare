@@ -1,6 +1,14 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Listing.all
+    if params[:query1].present? && params[:query2].blank?
+      @listings = Listing.where('brand ILIKE ?', params[:query1])
+    elsif params[:query1].blank? && params[:query2].present?
+      @listings = Listing.where('price <= ?', params[:query2])
+    elsif params[:query1].present? && params[:query2].present?
+      @listings = Listing.where('brand ILIKE ? AND price <= ?', params[:query1], params[:query2])
+    else
+      @listings = Listing.all
+    end
   end
 
   def show
