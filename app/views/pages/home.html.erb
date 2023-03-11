@@ -62,28 +62,7 @@
 <h2 class="titles"> Top-Rated Cars Available For Rent </h2>
 
 <div class="container">
-  <div class="row">
-    <% @listings.each_with_index do |listing, index| %>
-      <div class="col-md-4">
-        <div class="card mb-4 card-trip">
-          <div class="img-container trip-image">
-            <% if listing.photos.attached? %>
-              <%= image_tag listing.photos, class: "card-img-top" %>
-            <% end %>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title"><%= listing.category.to_s.capitalize %></h5>
-            <p class="card-text"><%= listing.description.capitalize %></p>
-            <p class="card-text">$<%= listing.price %> /day</p>
-            <p class="card-text"><%= listing.address.capitalize %></p>
-            <p class="card-text"><%= listing.user.first_name %></p>
-            <div class="actions">
-              <%= link_to 'Show', listing_path(listing), class: "my-button" %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+  <%= render "shared/listings_cards", listings: @listings %>
 </div>
 
 <div class="card-trip">
