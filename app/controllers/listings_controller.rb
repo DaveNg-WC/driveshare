@@ -15,8 +15,8 @@ class ListingsController < ApplicationController
     @listings = Listing.all
     @listings = @listings.where('brand ILIKE ?', params[:search_brand]) if params['search_brand'].present?
     @listings = @listings.where('price <= ?', params[:search_price]) if params['search_price'].present?
-    @listings = @listings.where('brand ILIKE ?', params[:search_category]) if params['search_category'].present?
-    @listings = @listings.where('brand ILIKE ?', params[:search_transmission]) if params['search_category'].present?
+    @listings = @listings.where('category ILIKE ?', params[:search_category]) if params['search_category'].present?
+    @listings = @listings.where('transmission ILIKE ?', params[:search_transmission]) if params['search_transmission'].present?
 
     # The `geocoded` scope filters only flats with coordinates
     @markers = @listings.geocoded.map do |listing|
