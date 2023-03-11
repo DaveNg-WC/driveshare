@@ -38,28 +38,33 @@
     }
   </style>
     <h1>Edit Listing</h1>
-      <%= form_for @listing do |f| %>
-      <%= f.label :brand %>
-      <%= f.select :brand, options_for_select([["Select One", ""], 'Tesla', 'Audi', 'BMW', 'Honda', 'Mazda'])%><br>
+   <%= form_for @listing do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
 
-      <%= f.label :category %>
-      <%= f.select :category, options_for_select([["Select One", ""], 'SUV', 'Sedan', 'Van', 'Lorry', 'Truck'])%><br>
+    <%= f.label :brand %>
+    <%= f.select :brand, options_for_select([["Select One", ""], 'Tesla', 'Audi', 'BMW', 'Honda', 'Mazda', "Toyota", "Mercedes"])%><br>
 
-      <%= f.label :transmission %>
-      <%= f.select :transmission, options_for_select([["Select One", ""], 'Manual', 'Auto'])%><br>
+    <%= f.label :category %>
+    <%= f.select :category, options_for_select([["Select One", ""], 'SUV', 'Sedan', 'Van', 'Lorry', 'Truck'])%><br>
 
-      <%= f.label :description %>
-      <%= f.text_area :description %><br>
+    <%= f.label :transmission %>
+    <%= f.select :transmission, options_for_select([["Select One", ""], 'Manual', 'Auto'])%><br>
 
-      <%= f.label :price %>
-      <%= f.text_field :price %><br>
+    <%= f.label :description %>
+    <%= f.text_area :description %><br>
 
-      <%= f.label :address %>
-      <%= f.text_field :address %><br>
+    <%= f.label :price, "Price Per Day" %>
+    <%= f.text_field :price %><br>
 
-      <%= f.label :photos %>
-      <%= f.file_field :photos %><br>
+    <%= f.label :address %>
+    <%= f.text_field :address %><br>
 
-      <%= f.submit "Update Listing" %>
-    <% end %>
+    <div class="upload">
+      <%= f.label :photos, "Upload Photos" %>
+      <%= f.file_field :photos, multiple: true %>
+    </div>
+
+    <%= f.submit "Edit Listing" %>
+  <% end %>
 </div>

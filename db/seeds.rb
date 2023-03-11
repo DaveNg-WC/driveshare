@@ -22,16 +22,16 @@ User.create(email: "test6@gmail.com", password: "aabbccdd", first_name: "Mason",
 User.create(email: "test7@gmail.com", password: "abcdefghi", first_name: "Ian", last_name: "Tan", username: "iantan", contact_number: "12345678", host: true)
 User.create(email: "test8@gmail.com", password: "aabbccdd", first_name: "Patsy", last_name: "Koh", username: "patsykoh", contact_number: "87654321", host: true)
 
-Listing.create(brand: "Audi", category: "Sedan", transmission: "Auto", description: "Best Audi in town", price: 90, address: "dover", user_id: 1)
-Listing.create(brand: "Tesla", category: "Sedan", transmission: "Auto", description: "Best Tesla in town", price: 110, address: "orchard", user_id: 2)
+Listing.create(name: "Weekend Date Audi A4", brand: "Audi", category: "Sedan", transmission: "Auto", description: "Best Audi in town", price: 90, address: "dover", user_id: 1)
+Listing.create(name: "0-100 3sec Model 3 Performance", brand: "Tesla", category: "Sedan", transmission: "Auto", description: "Best Tesla in town", price: 110, address: "orchard", user_id: 2)
 
 # Extra 6 Listings
-Listing.create(brand: "BMW", category: "Sedan", transmission: "Auto", description: "Best BMW in town", price: 90, address: "pasir ris", user_id: 3)
-Listing.create(brand: "Ford", category: "Sedan", transmission: "Auto", description: "Best Ford in town", price: 110, address: "bedok", user_id: 4)
-Listing.create(brand: "Toyota", category: "Sedan", transmission: "Auto", description: "Best Toyota in town", price: 65, address: "bishan", user_id: 5)
-Listing.create(brand: "Proton", category: "Sedan", transmission: "Auto", description: "Best Proton in town", price: 45, address: "toa payoh", user_id: 6)
-Listing.create(brand: "Mazda", category: "Sedan", transmission: "Auto", description: "Best Mazda in town", price: 75, address: "dover", user_id: 7)
-Listing.create(brand: "Hyundai", category: "Sedan", transmission: "Auto", description: "Best Hyundai in town", price: 39, address: "jurong", user_id: 8)
+Listing.create(name: "Weeknd BMW (JB allowed)", brand: "BMW", category: "Sedan", transmission: "Auto", description: "Best BMW in town", price: 90, address: "pasir ris", user_id: 3)
+Listing.create(name: "Mum's Ford", brand: "Ford", category: "Sedan", transmission: "Auto", description: "Best Ford in town", price: 110, address: "bedok", user_id: 4)
+Listing.create(name: "Mummy Toyota Vios 2009 1.5cc", brand: "Toyota", category: "Sedan", transmission: "Auto", description: "Best Toyota in town", price: 65, address: "bishan", user_id: 5)
+Listing.create(name: "Mercedes E250 Black", brand: "Mercedes", category: "Sedan", transmission: "Auto", description: "Best Mercedes in town", price: 45, address: "toa payoh", user_id: 6)
+Listing.create(name: "Mazda 3 2016 (Weekday)", brand: "Mazda", category: "Sedan", transmission: "Auto", description: "Best Mazda in town", price: 75, address: "dover", user_id: 7)
+Listing.create(name: "Hyundai Avante 2018", brand: "Hyundai", category: "Sedan", transmission: "Auto", description: "Best Hyundai in town", price: 39, address: "jurong", user_id: 8)
 
 Offer.create(price: 55, start_date: "2023-02-15", end_date: "2023-02-20", status: "PROPOSAL", listing_id: 1, user_id: 2)
 Offer.create(price: 38, start_date: "2023-02-21", end_date: "2023-02-26", status: "PROPOSAL", listing_id: 2, user_id: 1)
