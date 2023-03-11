@@ -17,10 +17,20 @@
 
 <h2 class="titles"> 3 Simple Steps To Renting A Car</h2>
 
-<div class="container cards" >
+<style>
+  .card-img-top {
+    object-fit: cover;
+  }
+
+  .container {
+    border-radius: 10px;
+  }
+</style>
+
+<div class="container cards d-flex justify-content-around">
   <div>
-    <div class="card" style="width: 18rem; height: 200px;">
-      <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card" style="width: 300px; height: 350px;">
+      <img class="card-img-top" src="https://res.cloudinary.com/dbmur41un/image/upload/v1678509010/homepage2_m41xl7.jpg" alt="Card image cap" style="height: 200px">
       <div class="card-body">
         <h2 class="card-text">Convenient</h2>
         <p class="card-text">Browse cars only that are nearby you. Save time and effort to you can run your errands as soon as you can.</p>
@@ -29,8 +39,8 @@
   </div>
 
   <div>
-    <div class="card" style="width: 18rem; height: 200px;">
-      <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card" style="width: 300px; height: 350px;">
+      <img class="card-img-top" src="https://res.cloudinary.com/dbmur41un/image/upload/v1678509010/homepage3_hrizqh.jpg" alt="Card image cap" style="height: 200px">
       <div class="card-body">
         <h2 class="card-text">Affordable</h2>
         <p class="card-text">Since you're renting from real people, get 30-40% cheaper prices compared to usual rentals. </p>
@@ -39,8 +49,8 @@
   </div>
 
   <div>
-    <div class="card" style="width: 18rem; height: 200px;">
-      <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card" style="width: 300px; height: 350px;">
+      <img class="card-img-top" src="https://res.cloudinary.com/dbmur41un/image/upload/v1677920416/bzeevft501zw77kt40v6lftj96ly.jpg" alt="Card image cap" style="height: 200px">
       <div class="card-body">
         <h2 class="card-text">Many Choices</h2>
         <p class="card-text">More choices compared to other traditional rental companies.</p>
@@ -48,20 +58,6 @@
     </div>
   </div>
 </div>
-
-<%= form_with url: listings_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query1,
-    params[:query1],
-    class: "form-control",
-    placeholder: "Search by Brand"
-  %>
-  <%= text_field_tag :query2,
-    params[:query2],
-    class: "form-control",
-    placeholder: "Search by Price per day"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
 
 <h2 class="titles"> Top-Rated Cars Available For Rent </h2>
 

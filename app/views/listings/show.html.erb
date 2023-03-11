@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 20px">
+<div class="container" style="margin-left: 8px">
 
   <% if @listing.photos.attached? %>
     <% @listing.photos.each do |photo| %>
@@ -17,17 +17,17 @@
 
   <br>
 
-  <%= link_to 'Edit', edit_listing_path(@listing) %> |
-  <%= link_to 'Back', listings_path %>
-  <p></p>
+  <% if @listing.user == current_user %>
+    <%= link_to 'Edit', edit_listing_path(@listing) %>
+    <p></p>
   <%# below is to test function of creating a new review for listing %>
 
-  <% if @listing.user == current_user %>
-    <%= link_to "Leave a Review", new_listing_review_path(@listing),
+  <% else %>
+    <%= link_to 'Back', listings_path %>
+    <%# <%= link_to "Leave a Review", new_listing_review_path(@listing),
         class: "btn btn-primary",
         style: "color: white;"
     %>
-  <% else %>
   <% end %>
   <p></p>
 
@@ -47,7 +47,7 @@
         <%= form.date_field :end_date, class: "form-control" %>
       </div>
       <br>
-      <%= form.submit "Send Offer", class: "btn btn-primary" %>
+      <%= form.submit "Send Offer", class: "btn btn-outline-primary" %>
     <% end %>
 
     <br>
