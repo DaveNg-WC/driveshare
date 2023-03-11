@@ -22,7 +22,8 @@ class ListingsController < ApplicationController
     @markers = @listings.geocoded.map do |listing|
       {
         lat: listing.latitude,
-        lng: listing.longitude
+        lng: listing.longitude,
+        info_window: render_to_string(partial: "popup_map", locals: {listing: listing})
       }
     end
   end
@@ -71,7 +72,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:name, :brand, :transmission, :category, :description, :price, :address, :photos)
+    params.require(:listing).permit(:name, :brand, :transmission, :category, :description, :price, :address, photos: [])
   end
 
   def offer_params
